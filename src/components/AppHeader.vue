@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps({
+	username: String,
+	avatar: String,
+});
+</script>
 
 <template>
 	<header class="header">
@@ -8,10 +13,10 @@
 				<h1 class="header__title">Vue Gallery</h1>
 			</div>
 			<div class="header__block">
-				<span>Alexander Kovalenko</span>
+				<span>{{ props.username }}</span>
 				<img
 					class="header__avatar"
-					src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/%D0%A1%D0%B8%D0%BD%D0%B5-%D0%B6%D1%91%D0%BB%D1%82%D1%8B%D0%B9_%D0%B0%D1%80%D0%B0_%28Ara_ararauna%29.jpg/275px-%D0%A1%D0%B8%D0%BD%D0%B5-%D0%B6%D1%91%D0%BB%D1%82%D1%8B%D0%B9_%D0%B0%D1%80%D0%B0_%28Ara_ararauna%29.jpg"
+					:src="props.avatar"
 					alt="avatar"
 				/>
 			</div>
