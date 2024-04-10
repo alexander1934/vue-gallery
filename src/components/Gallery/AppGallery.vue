@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import GalleryImage from "./GalleryImage.vue";
 
 interface Image {
 	id: number;
@@ -14,9 +14,11 @@ const props = defineProps<{
 <template>
 	<div class="gallery">
 		<div class="gallery__layout">
-			<div v-for="image in props.images" :key="image.id">
-				<img class="object-cover w-full h-40 rounded-md" :src="image.url" :alt="'Image ' + image.id" />
-			</div>
+			<GalleryImage
+				v-for="image in props.images"
+				v-bind:image="image"
+				:key="image.id"
+			/>
 		</div>
 	</div>
 </template>
@@ -27,6 +29,6 @@ const props = defineProps<{
 }
 
 .gallery__layout {
-	@apply mx-auto grid grid-cols-autofill gap-10 w-full max-w-[1280px];
+	@apply mx-auto grid w-full max-w-[1280px] grid-cols-autofill gap-10;
 }
 </style>

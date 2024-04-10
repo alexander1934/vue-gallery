@@ -8,17 +8,20 @@ export default [
 		languageOptions: {
 			globals: globals.browser,
 			parserOptions: {
-				"ecmaVersion": "latest",
-				"sourceType": "module",
-				"parser": "@typescript-eslint/parser"
-			}
+				ecmaVersion: "latest",
+				sourceType: "module",
+				parser: "@typescript-eslint/parser",
+			},
 		},
-		"plugins": {
-			pluginVue
+		plugins: {
+			pluginVue,
 		},
 		rules: {
 			"no-unused-vars": "error",
-			"@typescript-eslint/no-empty-interface": ["warn", { "allowSingleExtends": true }],
+			"@typescript-eslint/no-empty-interface": [
+				"warn",
+				{ allowSingleExtends: true },
+			],
 			"no-undef": "error",
 			"no-console": "error",
 		},

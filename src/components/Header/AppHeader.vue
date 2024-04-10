@@ -9,16 +9,12 @@ const props = defineProps({
 	<header class="header">
 		<div class="header__layout">
 			<div class="header__block">
-				<img class="w-14" src="../assets/appIcon.svg" alt="" />
+				<img class="w-14" src="../../assets/appIcon.svg" alt="" />
 				<h1 class="header__title">Vue Gallery</h1>
 			</div>
 			<div class="header__block">
 				<span>{{ props.username }}</span>
-				<img
-					class="header__avatar"
-					:src="props.avatar"
-					alt="avatar"
-				/>
+				<img class="header__avatar" :src="props.avatar" alt="avatar" />
 			</div>
 		</div>
 	</header>
