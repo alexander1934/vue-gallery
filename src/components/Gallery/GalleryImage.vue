@@ -9,8 +9,7 @@ const props = defineProps<{
 <template>
 	<div
 		:style="{ 'background-image': `url(${props.image.url})` }"
-		class="gallery__image-layout group"
-	>
+		class="gallery__image-layout group">
 		<img class="gallery__image" src="../../assets/like.svg" alt="" />
 	</div>
 </template>
