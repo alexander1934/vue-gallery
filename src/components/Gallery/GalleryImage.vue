@@ -1,8 +1,5 @@
 <script setup lang="ts">
-interface Image {
-	id: number;
-	url: string;
-}
+import { Image } from "../../interfaces/interfaces.ts";
 
 const props = defineProps<{
 	image: Image;

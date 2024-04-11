@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import GalleryImage from "./GalleryImage.vue";
-
-interface Image {
-	id: number;
-	url: string;
-}
+import { Image } from "../../interfaces/interfaces.ts";
 
 const props = defineProps<{
 	images: Image[];
