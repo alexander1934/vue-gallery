@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import GalleryImage from "./GalleryImage.vue";
-import { Image } from "../../interfaces/interfaces.ts";
+// import { Image } from "../../interfaces/interfaces.ts";
 
 const props = defineProps<{
-	images: Image[];
+	images: any[];
 	authStatus: Boolean;
 }>();
 </script>
