@@ -2,7 +2,7 @@
 const props = defineProps({
 	authStatus: Boolean,
 	username: String,
-	avatar: String,
+	// avatar: String,
 });
 </script>
 
@@ -15,7 +15,7 @@ const props = defineProps({
 			</div>
 			<div class="header__block" v-if="props.authStatus === true">
 				<span>{{ props.username }}</span>
-				<img class="header__avatar" :src="props.avatar" alt="avatar" />
+				<!--				<img class="header__avatar" :src="props.avatar" alt="avatar" />-->
 			</div>
 			<RouterLink to="/login" class="header__block group" v-else>
 				<span class="header__sign-in-text">Войти</span>

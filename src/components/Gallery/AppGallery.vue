@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import GalleryImage from "./GalleryImage.vue";
-// import { Image } from "../../interfaces/interfaces.ts";
+import { Image } from "../../interfaces/interfaces.ts";
+import { ref } from "vue";
 
 const props = defineProps<{
-	images: any[];
+	images: Image[];
 	authStatus: Boolean;
 }>();
+
+const imageArray = ref<Image[]>(
+	JSON.parse(localStorage.getItem("likedImages") || "[]"),
+);
+
+function likeImage(image: Image) {
+	imageArray.value.push(image);
+	localStorage.setItem("likedImages", JSON.stringify(imageArray.value));
+}
 </script>
 
 <template>
@@ -13,7 +23,8 @@ const props = defineProps<{
 		<div class="gallery__layout" v-if="props.authStatus === true">
 			<GalleryImage
 				v-for="image in props.images"
-				v-bind:image="image"
+				:image="image"
+				:likeHandler="likeImage"
 				:key="image.id" />
 		</div>
 		<span v-else>

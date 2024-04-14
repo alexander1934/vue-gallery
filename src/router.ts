@@ -6,6 +6,7 @@ import AppLogin from "./components/AppLogin.vue";
 const routes = [
 	{ path: "/", component: AppLayout },
 	{ path: "/login", component: AppLogin },
+	{ path: "/liked", component: AppLayout },
 ];
 
 const router = createRouter({

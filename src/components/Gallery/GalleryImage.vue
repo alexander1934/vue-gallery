@@ -3,6 +3,7 @@ import { Image } from "../../interfaces/interfaces.ts";
 
 const props = defineProps<{
 	image: Image;
+	likeHandler: Function;
 }>();
 </script>
 
@@ -10,7 +11,11 @@ const props = defineProps<{
 	<div
 		:style="{ 'background-image': `url(${props.image.url})` }"
 		class="gallery__image-layout group">
-		<img class="gallery__image" src="../../assets/like.svg" alt="" />
+		<img
+			@click="likeHandler(props.image)"
+			class="gallery__image"
+			src="../../assets/like.svg"
+			alt="" />
 	</div>
 </template>
 

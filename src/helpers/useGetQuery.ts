@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const useGetQuery = (url: string, array: any) => {
-	axios.get(url)
+	axios
+		.get(url)
 		.then(function (response) {
 			// обработка успешного запроса
 			array.value = response.data;
@@ -9,5 +10,5 @@ export const useGetQuery = (url: string, array: any) => {
 		.catch(function (error) {
 			// обработка ошибки
 			console.log(error);
-		})
-}
+		});
+};
