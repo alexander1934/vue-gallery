@@ -25,10 +25,10 @@ const setUser = () => {
 </script>
 
 <template>
-	<div class="flex h-screen items-center justify-center">
-		<div class="rounded-lg bg-[#0D1117] p-12">
-			<h1 class="mb-10 text-3xl">Войти</h1>
-			<form action="" class="flex flex-col gap-4">
+	<div class="form__layout">
+		<div class="form__container">
+			<h1 class="form__title">Войти</h1>
+			<form action="" class="form">
 				<input
 					v-model="firstName"
 					class="form__input"
@@ -49,7 +49,7 @@ const setUser = () => {
 					class="form__input"
 					placeholder="Пароль"
 					type="text" />
-				<button class="bg-green-600" @click="setUser">
+				<button class="form__button" @click="setUser">
 					Продолжить
 				</button>
 			</form>
@@ -58,7 +58,27 @@ const setUser = () => {
 </template>
 
 <style scoped>
+.form__layout {
+	@apply flex h-screen items-center justify-center;
+}
+
+.form__container {
+	@apply rounded-lg bg-[#0D1117] px-12 py-8;
+}
+
+.form__title {
+	@apply mb-10 text-3xl;
+}
+
+.form {
+	@apply flex flex-col gap-4;
+}
+
 .form__input {
-	@apply rounded-md bg-gray-900 p-4;
+	@apply w-[300px] rounded-md bg-gray-900 p-4;
+}
+
+.form__button {
+	@apply bg-green-600;
 }
 </style>
