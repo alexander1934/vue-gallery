@@ -2,13 +2,16 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
+// Получаем объект маршрутизатора
 const router = useRouter();
 
+// Создаем реактивные переменные для хранения данных о пользователе
 const firstName = ref("");
 const lastName = ref("");
 const email = ref("");
 const password = ref("");
 
+// Функция для сохранения данных пользователя в локальное хранилище и перехода на главную страницу
 const setUser = () => {
 	const User = {
 		firstName: firstName.value,
@@ -17,7 +20,7 @@ const setUser = () => {
 		password: password.value,
 	};
 	localStorage.setItem("user", JSON.stringify(User));
-	router.push("/");
+	router.push("/"); // Переходим на главную страницу
 };
 </script>
 

@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import { Image } from "../../interfaces/interfaces.ts";
+import { ref } from "vue";
 
 const props = defineProps<{
 	image: Image;
 	likeHandler: Function;
+	likedImages: number[];
 }>();
+
+const isLiked = ref<boolean>(false);
+if (props.likedImages.find((imageId) => imageId === props.image.id)) {
+	isLiked.value = true;
+}
 </script>
 
 <template>

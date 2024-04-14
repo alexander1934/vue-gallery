@@ -1,21 +1,28 @@
 <script setup lang="ts">
 import GalleryImage from "./GalleryImage.vue";
 import { Image } from "../../interfaces/interfaces.ts";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 
 const props = defineProps<{
 	images: Image[];
 	authStatus: Boolean;
 }>();
 
-const imageArray = ref<Image[]>(
+const likedImageArray = ref<Image[]>(
 	JSON.parse(localStorage.getItem("likedImages") || "[]"),
+);
+const likedImagesId = ref<number[]>(
+	likedImageArray.value.map((image) => image.id),
 );
 
 function likeImage(image: Image) {
-	imageArray.value.push(image);
-	localStorage.setItem("likedImages", JSON.stringify(imageArray.value));
+	likedImageArray.value.push(image);
+	localStorage.setItem("likedImages", JSON.stringify(likedImageArray.value));
 }
+
+watchEffect(() => {
+	likedImagesId.value = likedImageArray.value.map((image) => image.id);
+});
 </script>
 
 <template>
@@ -24,6 +31,7 @@ function likeImage(image: Image) {
 			<GalleryImage
 				v-for="image in props.images"
 				:image="image"
+				:likedImages="likedImagesId"
 				:likeHandler="likeImage"
 				:key="image.id" />
 		</div>
